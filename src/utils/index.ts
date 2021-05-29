@@ -1,6 +1,5 @@
 import { mapObject } from 'fxjs2/Strict'
 
-export { default as notification } from './notification'
 export { default as storage } from './storage'
 export { default as dateForm } from './date'
 // validation login needs
@@ -35,7 +34,6 @@ export function dateToString (d, withTime = false, withElapsedMinute = false) {
     (v: any) => String(v).padStart(2, '0'),
     dateParse(d)
   )
-  const shortYear = String(year).slice(2)
   if (withTime) {
     return `${year}/${month}/${date} ${hours}:${minutes}:${seconds}`
   }
@@ -54,7 +52,6 @@ export function dateToStringWithElapsed (d) {
     (v: any) => String(v).padStart(2, '0'),
     dateParse(d)
   )
-  const shortYear = String(year).slice(2)
   const recentTime = d.getTime()
   const now: any = Date.now()
   const elapsedMinutes = Math.round((now - recentTime) / 1000 / 60)
